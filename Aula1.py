@@ -157,3 +157,85 @@ print(cesta[3][0])
 
 print(len(cesta))
 """
+
+
+"""
+lista = []
+num = int(input("Digite um valor: "))
+
+while num != -1:
+    lista.append(num)  # append vai adicionar o numero na lista*
+    num = int(input("Digite um valor: "))
+
+elemento = int(input("Qual o valor a ser procurado: "))
+
+cont = 0
+
+for i in range(len(lista)):  # len percorre em todos os itens da lista
+    if lista[i] == elemento:
+        cont += 1
+
+print("O elemento %i aparece %i vezes na sequencia." % (elemento, cont))
+"""
+
+
+"""
+# Inserido 4 notas de 6 alunos, e calculado a o número de médias maior que 6 usando o vetor.
+alunos = 6
+medias = []
+
+for i in range(1, alunos + 1):  # começará com 1 aluno e vai até 8 com o +1.
+    notas = 0
+    for j in range(1, 5):
+        notas += float(input("Digite a nota %i de 4 notas do aluno %i de %i: " %
+                       (j, i, alunos)))
+    notas /= 4
+    medias.append(notas)
+
+num = 0
+
+for media in medias:  # a variável media é o resultado da média de cada aluno.
+    if media >= 6:
+        num += 1
+
+print("O número de alunos com media maior que 6 é", num)
+"""
+
+"""
+# Exibindo números de elementos de uma lista sem repetição.
+
+n = int(input("Digite o numero de elementos da lista: "))
+
+lista = []
+aux = []
+
+for i in range(n):
+    elemento = int(input("Digite o elemnto %i de %i: " % (i + 1, n)))
+    lista.append(elemento)
+    aux.append(elemento)
+
+print(lista)
+
+for ele in aux:
+    aparicoes = lista.count(ele)
+    for i in range(aparicoes-1): # -1 remove a aparições do número repetido.
+        lista.remove(ele)
+
+print(lista)
+"""
+
+# Síntaxe de funções
+
+
+def soma(*lista):  # múltiplos parâmetros
+    soma_num = 0
+    print(lista)
+
+    for num in lista:
+        soma_num += num
+    return soma_num
+
+
+a = (1, 2, 3, 4)
+# O operador * desempacota os valores de a na função, sendo assim mantém a variavel e ainda imprime o resultado.
+print(soma(*a))
