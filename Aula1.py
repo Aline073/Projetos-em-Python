@@ -224,6 +224,7 @@ for ele in aux:
 print(lista)
 """
 
+"""
 # Síntaxe de funções
 
 
@@ -239,3 +240,155 @@ def soma(*lista):  # múltiplos parâmetros
 a = (1, 2, 3, 4)
 # O operador * desempacota os valores de a na função, sendo assim mantém a variavel e ainda imprime o resultado.
 print(soma(*a))
+"""
+
+"""
+#Sistema bancário: criar conta ou fechar programa.
+
+contas[]
+depositos[]
+
+def main():
+    opcao = bool(
+        int(input("Deseja acessar ou criar uma conta(1) senão fechar o programa (0)")))
+    while opcao:
+        criarConta()
+        acessarSaldo()
+        opcao = bool(
+            int(input("Deseja acessar ou criar uma conta(1) senão fechar o programa (0)")))
+
+def criarConta ():
+    global contas,depositos,saldo
+    num_conta = int(input("Digite o número da conta:"))
+
+    while num_conta in contas:
+        print ("Conta já existente, DIgite novamente.")
+        num_conta = int(input("Digite o número da conta:"))
+
+    contas.append(num_conta)
+    deposito = float(input("Digite o valor do primeiro deposito:"))
+    while deposito <= 0:
+        print("Valor do deposito inválido")
+        deposito = float(input("Digite o valor do primeiro deposito:"))
+    depositos.append(deposito)
+    saldo += deposito
+
+def acessarSaldo():
+    global saldo
+    opcao = bool(
+        int(input("Deseja acessar o saldo do banco (1 - Sim / 0 - Não: ")))
+    if opcao:
+        print("Osaldo da conta é R$", saldo)
+
+main()
+
+"""
+
+
+"""
+# função que produza a sma dos primeiros n números de uma lista com tamanho m
+
+
+def criaLista():
+    lista = []
+
+    m = int(input("Digite o tamanho da lista: "))
+
+    for i in range(m):
+        ele = float(input("Digite o elemento %i de %i: " % (i+1, m)))
+        lista.append(ele)
+
+    return lista
+
+
+def main():
+    l1 = criaLista()
+
+    n = int(input("Digite o número de elementos que se deseja somar: "))
+
+    soma = 0
+    for i in range(1, len(l1)+1):  # contagem da lista começar por 1 em vez de 0
+        if i > n:
+            break
+        soma += l1[i-1]  # atinge a posição correta da lista
+
+    print("A soma é", soma)
+
+
+main()
+"""
+
+
+"""
+tamanho_max = 26
+
+
+def recebeModo():
+
+ #Função que pergunta se o usuário quer criptografar ou decriptografar e garante que uma entrada válida foi recebida
+
+    while True:
+        modo = input("Você deseja criptograr ou decriptografar? \n").lower()
+        if modo in 'criptografar c decriptografar d'.split():
+            return modo
+        else:
+            print("Entre 'criptografar' ou 'c' ou 'decriptografar' ou 'd'.")
+
+
+def recebeChave():
+
+    #Função que pede o valor da chave para o usuário e devolve a chave caso o valor desta esteja adequado
+
+    global tamanho_max
+    chave = 0
+
+    while True:
+        chave = int(input('Entre com o número da chave (1-%s)' %
+                    (tamanho_max)))
+        if 1 <= chave <= tamanho_max:
+            return chave
+
+
+def geraMsgTraduzida(modo, mensagem, chave):
+
+    #Traduz a mensagem do usuário de modo conveniente
+
+    if modo[0] == 'd':
+        chave *= -1
+    traduzido = ''
+    for simbolo in mensagem:
+        if simbolo.isalpha():
+            num = ord(simbolo)
+            num += chave
+
+            if simbolo.isupper():
+                if num > ord('Z'):
+                    num -= 26
+                elif num < ord('A'):
+                    num += 26
+            elif simbolo.islower():
+                if num > ord('z'):
+                    num -= 26
+                elif num < ord('a'):
+                    num += 26
+
+            traduzido += chr(num)
+        else:
+            traduzido += simbolo
+
+    return traduzido
+
+
+def main():
+
+    #Função principal do programa
+
+    modo = recebeModo()
+    mensagem = input("Entre com sua mensagem \n")
+    chave = recebeChave()
+    print("Seu texto traduzido é: ")
+    print(geraMsgTraduzida(modo, mensagem, chave))
+
+
+main()
+"""
